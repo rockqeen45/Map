@@ -6,12 +6,15 @@ lct = geopy.geocoders.Bing("AvX_yIinedyCGOKi-qr4Ly6kSNfXVf08N2LjqQ3rvo9xq7PijJcM
 
 def add_point(mapa, loki, name):
     """
+    Add points to the map.
     """
     mapa.add_child(folium.CircleMarker(location = loki, radius = 1, popup = name, fill_color='gold', color='gold', fill_opacity= 1))
 
 
 def read_file(file):
     """
+    (str) ->(dict)
+    Return dict of years, names, places with years as keys and list of names, places as values.
     """
     counter = 0
     lst_of_places = []
@@ -33,7 +36,13 @@ def read_file(file):
     
 
 def to_edge_dict(edge_list):
-    """ 
+    """
+    (list) -> (dict)
+
+    Convert pairs from list to dictionary of values.
+    
+    >>> to_edge_dict([[1, 2], [3, 4], [1, 5], [2, 4]])
+    {1: [2, 5], 3: [4], 2: [4]
     """
     d = {}
     for i,j in edge_list:
@@ -46,6 +55,7 @@ def to_edge_dict(edge_list):
 
 def get_films_info(year, country):
     """
+    Get ingormation about films from the file and add it to the list. Replace adresses with coordinates.
     """
     str_year = str(year)
     dict_of_films = read_file("locations.csv")
@@ -70,6 +80,12 @@ def get_films_info(year, country):
 
 def get_location(adress):
     """
+    (str)-> (list)
+    
+    Get the coordinates in list from the adress
+    
+    >>> get_location("Ukraine")
+    [49.1602935791016, 31.2781219482422]
     """
     location_1 = lct.geocode(adress)
     return [location_1.latitude, location_1.longitude]
@@ -77,6 +93,7 @@ def get_location(adress):
 
 def create_points_group(obj, list_of_films):
     """
+    Generate points with given objects and lists.
     """
     for lst in list_of_films:
         try:
