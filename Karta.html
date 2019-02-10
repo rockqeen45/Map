@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.3.4/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.3.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>#map_3ec40e62d0024f8cbcdc20a3352b519e {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+    </style>
+</head>
+<body>    
+    
+    <div class="folium-map" id="map_3ec40e62d0024f8cbcdc20a3352b519e" ></div>
+</body>
+<script>    
+    
+    
+        var bounds = null;
+    
+
+    var map_3ec40e62d0024f8cbcdc20a3352b519e = L.map(
+        'map_3ec40e62d0024f8cbcdc20a3352b519e', {
+        center: [0, 0],
+        zoom: 1,
+        maxBounds: bounds,
+        layers: [],
+        worldCopyJump: false,
+        crs: L.CRS.EPSG3857,
+        zoomControl: true,
+        });
+
+    
+    
+    var tile_layer_d7c68f7787aa493e8c5680739b46c281 = L.tileLayer(
+        'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_3ec40e62d0024f8cbcdc20a3352b519e);
+    
+            var feature_group_abcd76115dab4ae2b5dfeaa390ee7abc = L.featureGroup(
+                ).addTo(map_3ec40e62d0024f8cbcdc20a3352b519e);
+        
+    
+            var circle_marker_6260d4ba92284eee9d85327a52a0485b = L.circleMarker(
+                [40.7145500183105, -74.0071411132812],
+                {
+  "bubblingMouseEvents": true,
+  "color": "yellow",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "yellow",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 3,
+  "stroke": true,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_abcd76115dab4ae2b5dfeaa390ee7abc);
+            
+    
+            var popup_e2a4d81c5b0f4c3b839aee684d8c9fd8 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_83b7fbbe24ac44c190d54cd689ae9d3c = $(`<div id="html_83b7fbbe24ac44c190d54cd689ae9d3c" style="width: 100.0%; height: 100.0%;">"100 Centre Street" </div>`)[0];
+                popup_e2a4d81c5b0f4c3b839aee684d8c9fd8.setContent(html_83b7fbbe24ac44c190d54cd689ae9d3c);
+            
+
+            circle_marker_6260d4ba92284eee9d85327a52a0485b.bindPopup(popup_e2a4d81c5b0f4c3b839aee684d8c9fd8)
+            ;
+
+            
+        
+    
+            var circle_marker_e2937ac4d11b4077ad684d76d66ced76 = L.circleMarker(
+                [23.9406204223633, -102.52513885498],
+                {
+  "bubblingMouseEvents": true,
+  "color": "yellow",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "yellow",
+  "fillOpacity": 1,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 3,
+  "stroke": true,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_abcd76115dab4ae2b5dfeaa390ee7abc);
+            
+    
+            var popup_1402cfbd713346b99fc9e1f81fb056b2 = L.popup({maxWidth: '300'
+            
+            });
+
+            
+                var html_a471ad49ecf947d097103311d0a78b0a = $(`<div id="html_a471ad49ecf947d097103311d0a78b0a" style="width: 100.0%; height: 100.0%;">"100 mexicanos dijeron" </div>`)[0];
+                popup_1402cfbd713346b99fc9e1f81fb056b2.setContent(html_a471ad49ecf947d097103311d0a78b0a);
+            
+
+            circle_marker_e2937ac4d11b4077ad684d76d66ced76.bindPopup(popup_1402cfbd713346b99fc9e1f81fb056b2)
+            ;
+
+            
+        
+    
+            var layer_control_ccd8c18ec6b44799a2ccb618e3fe1b25 = {
+                base_layers : { "cartodbdark_matter" : tile_layer_d7c68f7787aa493e8c5680739b46c281, },
+                overlays : { "Mark Films" : feature_group_abcd76115dab4ae2b5dfeaa390ee7abc, }
+                };
+            L.control.layers(
+                layer_control_ccd8c18ec6b44799a2ccb618e3fe1b25.base_layers,
+                layer_control_ccd8c18ec6b44799a2ccb618e3fe1b25.overlays,
+                {position: 'topright',
+                 collapsed: true,
+                 autoZIndex: true
+                }).addTo(map_3ec40e62d0024f8cbcdc20a3352b519e);
+            
+        
+</script>
