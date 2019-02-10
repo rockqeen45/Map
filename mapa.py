@@ -5,7 +5,7 @@ lct = geopy.geocoders.Bing("AvX_yIinedyCGOKi-qr4Ly6kSNfXVf08N2LjqQ3rvo9xq7PijJcM
 
 
 def add_point(mapa, loki, name):
-    mapa.add_child(folium.CircleMarker(location = loki, radius = 3, popup = name, fill_color='yellow', color='yellow', fill_opacity= 1))
+    mapa.add_child(folium.CircleMarker(location = loki, radius = 1, popup = name, fill_color='gold', color='gold', fill_opacity= 1))
 
 
 def read_file(file):
@@ -22,7 +22,7 @@ def read_file(file):
                 lst_of_names.append(l[0])
                 lst_of_years.append(l[1])
             counter += 1
-            if counter > 1000:
+            if counter > 1500:
                 break
 
     meanings = list(zip(lst_of_names,lst_of_places))
@@ -43,7 +43,7 @@ def to_edge_dict(edge_list):
     return d
 
 
-def get_films_info(year):
+def get_films_info(year, country):
     """
     """
     str_year = str(year)
@@ -51,11 +51,19 @@ def get_films_info(year):
     nice_lst = []
     for tup in dict_of_films[str_year]:
         try:
-            buffer = []
-            buffer.append(tup[0])
-            print(tup[1])
-            buffer.extend([get_location(tup[1])])
-            nice_lst.extend([buffer])
+            if country in tup[1]:
+                buffer = []
+                buffer.append(tup[0])
+                print(tup[1])
+                buffer.extend([get_location(tup[1])])
+                nice_lst.extend([buffer])
+            elif country == "else":
+                if ("USA" not in tup[1]) and ("Canada" not in tup[1]):
+                    buffer = []
+                    buffer.append(tup[0])
+                    print(tup[1])
+                    buffer.extend([get_location(tup[1])])
+                    nice_lst.extend([buffer])   
         except:
             pass
     return nice_lst
@@ -66,20 +74,34 @@ def get_location(adress):
     return [location_1.latitude, location_1.longitude]
 
 
+def create_points_group(obj, list_of_films):
+    for lst in list_of_films:
+        try:
+            add_point(obj, lst[1], lst[0])
+        except:
+            pass
 
 
 mapa = folium.Map(tiles="cartodbdark_matter")
-films_list = get_films_info(input("Give me a year: "))
-marker_films = folium.FeatureGroup(name="Mark Films")
 
-for lst in films_list:
-    try:
-        add_point(marker_films, lst[1], lst[0])
-    except:
-        pass
+year = input("Give me a year: ")
+else_films = get_films_info(year, "else")
+usa_films = get_films_info(year, "USA")
+canada_films = get_films_info(year, "Canada")
+
+else_f = folium.FeatureGroup(name = "Other Films")
+usa_f = folium.FeatureGroup(name = "USA Films")
+canada_f = folium.FeatureGroup(name = "Canada Films")
 
 
-mapa.add_child(marker_films)
+create_points_group(else_f, else_films)
+create_points_group(usa_f, usa_films)
+create_points_group(canada_f, canada_films)
+
+
+mapa.add_child(else_f)
+mapa.add_child(usa_f)
+mapa.add_child(canada_f)
 mapa.add_child(folium.LayerControl())
 mapa.save('Karta.html')
 
